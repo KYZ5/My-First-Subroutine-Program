@@ -19,30 +19,22 @@ public class MathSubroutines {
     public static void isItAPrime(double x)
     {
         boolean prime = true;
+        x = Math.abs(x);
         double i = x - 1;
         if (x==1)
         {
             prime = true;
         } 
-        if (x < 0)
+        else
         {
-        while (i < x && prime == true)
+        while (i > 1 && prime == true)
         {
-            if ((x / i)==((int) x - i))
+            if ((x / i)%1==0)
             {
                 prime = false;
             }
             i--;
         }
-        }
-        else
-        {
-            i += 2;
-            if ((x / i)==((int) x - i))
-            {
-                prime = false;
-            }
-            i++;
         }
         if (prime == true)
         {
@@ -59,7 +51,11 @@ public class MathSubroutines {
     }
     public static void sphere(double r)
     {
-        System.out.println("The volume of the sphere is " + ((4/3*Math.PI)*r*r*r) + " cm cubed");
+        double v = (4/3*Math.PI)*r*r*r;
+        v = v*100;
+        v = Math.round(v);
+        v = v/100;
+        System.out.println("The volume of the sphere is " + v + " cm cubed");
     }
     public static void cube (double l)
     {
@@ -67,7 +63,11 @@ public class MathSubroutines {
     }
     public static void root(double x)
     {
-        System.out.println("The square root of the number is " + (Math.pow(x, 0.5)));
+        double root = Math.pow(x, 0.5);
+        root = root*100;
+        root = Math.round(root);
+        root = root/100;
+        System.out.println("The square root of the number is " + root);
     }
     public static void main(String[] args) {
         
